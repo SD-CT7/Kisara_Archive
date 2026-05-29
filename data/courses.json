@@ -1,0 +1,17 @@
+[
+  {
+    "id": "mario_circuit",
+    "name": "マリオサーキット",
+    "aliases": ["マリサ", "MC"]
+  },
+  {
+    "id": "toad_circuit",
+    "name": "キノコキャニオン",
+    "aliases": ["キノコ", "TC"]
+  },
+  {
+    "id": "neo_bowser_city",
+    "name": "ネオクッパシティ",
+    "aliases": ["ネオクパ", "NBC"]
+  }
+]
