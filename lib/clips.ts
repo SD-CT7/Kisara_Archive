@@ -57,7 +57,9 @@ export function getClipMeta(id: string): ClipMeta | null {
 
   return {
     id,
-    date: String(data.date ?? ''),
+    date: data.date instanceof Date
+            ? data.date.toISOString().slice(0, 10)
+               : String(data.date ?? ''),
     session: Number(data.session ?? 1),
     race: Number(data.race ?? 1),
     course: String(data.course ?? ''),
