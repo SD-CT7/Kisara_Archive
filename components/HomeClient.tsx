@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
 import ClipCard from './ClipCard'
 import SearchPanel, { defaultSearch, type SearchState } from './SearchPanel'
@@ -99,6 +98,13 @@ export default function HomeClient({ clips, courses }: Props) {
     query: searchParams.get('q') ?? '',
   })
 
+  useEffect(() => {
+    const q = searchParams.get('q') ?? ''
+    setSearch((prev) => ({ ...prev, query: q }))
+  }, [searchParams])
+
+  const filtered = useMemo(
+  
   const filtered = useMemo(
     () => filterClips(clips, search, courses),
     [clips, courses, search]
