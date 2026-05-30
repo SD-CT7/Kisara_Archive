@@ -129,7 +129,7 @@ export default function HomeClient({ clips, courses }: Props) {
           height={48}
           className={styles.logo}
         />
-        <h1 className={styles.title}>Kisara Archive</h1>
+        <h1 className={styles.title}>きさら あーかいぶ</h1>
       </div>
 
       {/* クリップグリッド */}
