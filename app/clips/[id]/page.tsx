@@ -113,8 +113,10 @@ export default async function ClipPage({ params }: Props) {
             <div className={styles.sectionTitle}>タグ</div>
             <div className={styles.tags}>
               {clip.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>#{tag}</span>
-              ))}
+  <Link key={tag} href={`/?q=%23${encodeURIComponent(tag)}`} className={styles.tag}>
+    #{tag}
+  </Link>
+))}
             </div>
           </>
         )}
