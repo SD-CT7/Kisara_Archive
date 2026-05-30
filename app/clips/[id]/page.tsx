@@ -85,7 +85,7 @@ export default async function ClipPage({ params }: Props) {
         {/* 元動画リンク */}
         <div className={styles.sectionTitle}>元動画</div>
         <a
-          href={clip.video}
+          href={clip.source}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.linkCard}
