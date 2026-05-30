@@ -99,7 +99,7 @@ export default async function ClipPage({ params }: Props) {
             </div>
             <div>
               <div className={styles.linkText}>動画を開く</div>
-              <div className={styles.linkSub}>{new URL(clip.video).hostname}</div>
+              <div className={styles.linkSub}>{new URL(clip.source).hostname}</div>
             </div>
           </div>
           <svg className={styles.chevron} viewBox="0 0 24 24" fill="none" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
