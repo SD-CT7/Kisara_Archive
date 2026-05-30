@@ -1,17 +1,162 @@
 [
   {
+    "id": "toad_circuit",
+    "name": "キノピオサーキット",
+    "aliases": ["キノサ", "TC"]
+  },
+  {
+    "id": "daisy_hills",
+    "name": "デイジーヒルズ",
+    "aliases": ["デイヒル", "DH"]
+  },
+  {
+    "id": "cheep_cheep_lagoon",
+    "name": "プクプクラグーン",
+    "aliases": ["プクラグ", "CCL"]
+  },
+  {
+    "id": "shy_guy_bazaar",
+    "name": "ヘイホーカーニバル",
+    "aliases": ["ヘイカニ", "SGB"]
+  },
+  {
+    "id": "wuhu_loop",
+    "name": "ウーフーアイランド1",
+    "aliases": ["ウーフー1", "WL"]
+  },
+  {
     "id": "mario_circuit",
     "name": "マリオサーキット",
     "aliases": ["マリサ", "MC"]
   },
   {
-    "id": "toad_circuit",
-    "name": "キノコキャニオン",
-    "aliases": ["キノコ", "TC"]
+    "id": "music_park",
+    "name": "ミュージックパーク",
+    "aliases": ["ミューパ", "MP"]
+  },
+  {
+    "id": "rock_rock_mountain",
+    "name": "ロックロックマウンテン",
+    "aliases": ["ロクマ", "RRM"]
+  },
+  {
+    "id": "piranha_plant_slide",
+    "name": "パックンスライダー",
+    "aliases": ["パクスラ", "PPS"]
+  },
+  {
+    "id": "wario_shipyard",
+    "name": "ワリオシップ",
+    "aliases": ["ワリシ", "WS"]
   },
   {
     "id": "neo_bowser_city",
     "name": "ネオクッパシティ",
-    "aliases": ["ネオクパ", "NBC"]
+    "aliases": ["ネオパ", "NBC"]
+  },
+  {
+    "id": "maka_wuhu",
+    "name": "ウーフーアイランド2",
+    "aliases": ["ウーフー2", "MW"]
+  },
+  {
+    "id": "dk_jungle",
+    "name": "DKジャングル",
+    "aliases": ["DKJ"]
+  },
+  {
+    "id": "rosalinas_ice_world",
+    "name": "ロゼッタプラネット",
+    "aliases": ["ロゼプラ", "RIW"]
+  },
+  {
+    "id": "bowsers_castle",
+    "name": "クッパキャッスル",
+    "aliases": ["クパキャ", "BC"]
+  },
+  {
+    "id": "rainbow_road",
+    "name": "レインボーロード",
+    "aliases": ["虹", "RR"]
+  },
+  {
+    "id": "n64_luigi_raceway",
+    "name": "64 ルイージサーキット",
+    "aliases": ["64ルイサ", "rLR"]
+  },
+  {
+    "id": "gba_bowser_castle_1",
+    "name": "GBA クッパキャッスル1",
+    "aliases": ["GBAクパキ1", "rBC1"]
+  },
+  {
+    "id": "wii_mushroom_gorge",
+    "name": "Wii キノコキャニオン",
+    "aliases": ["キノキャニ", "rMG"]
+  },
+  {
+    "id": "ds_luigis_mansion",
+    "name": "DS ルイージマンション",
+    "aliases": ["ルイマン", "rLM"]
+  },
+  {
+    "id": "n64_koopa_beach",
+    "name": "64 ノコノコビーチ",
+    "aliases": ["ノコビ", "rKB"]
+  },
+  {
+    "id": "snes_mario_circuit_2",
+    "name": "SFC マリオサーキット2",
+    "aliases": ["SFCマリサ2", "rMC2"]
+  },
+  {
+    "id": "wii_coconut_mall",
+    "name": "Wii ココナッツモール",
+    "aliases": ["ココモ", "rCM"]
+  },
+  {
+    "id": "ds_waluigi_pinball",
+    "name": "DS ワルイージピンボール",
+    "aliases": ["ワルピン", "rWP"]
+  },
+  {
+    "id": "n64_kalimari_desert",
+    "name": "64 カラカラさばく",
+    "aliases": ["カラさば", "rKD"]
+  },
+  {
+    "id": "ds_dk_pass",
+    "name": "DS DKスノーマウンテン",
+    "aliases": ["DKスノー", "rDKP"]
+  },
+  {
+    "id": "gcn_daisy_cruiser",
+    "name": "GC デイジークルーザー",
+    "aliases": ["デイクル", "rDC"]
+  },
+  {
+    "id": "wii_maple_treeway",
+    "name": "Wii メイプルツリーハウス",
+    "aliases": ["メイプル", "rMT"]
+  },
+  {
+    "id": "wii_koopa_cape",
+    "name": "Wii ノコノコみさき",
+    "aliases": ["ノコみさ", "rKC"]
+  },
+  {
+    "id": "gcn_dino_dino_jungle",
+    "name": "GC ディノディノジャングル",
+    "aliases": ["ディノディノ", "ディノジャン", "rDDJ"]
+  },
+  {
+    "id": "ds_airship_fortress",
+    "name": "DS キラーシップ",
+    "aliases": ["キラシ", "rAF"]
+  },
+  {
+    "id": "snes_rainbow_road",
+    "name": "SFC レインボーロード",
+    "aliases": ["SFC虹", "rRR", "旧虹"]
   }
 ]
