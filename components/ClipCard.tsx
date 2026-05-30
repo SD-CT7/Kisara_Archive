@@ -37,11 +37,16 @@ export default function ClipCard({ clip }: Props) {
         <p className={styles.preview}>{clip.preview}…</p>
         {clip.tags.length > 0 && (
           <div className={styles.tags}>
-            {clip.tags.map((tag) => (
-              <span key={tag} className={styles.tag}>
-                #{tag}
-              </span>
-            ))}
+           {clip.tags.map((tag) => (
+  <Link
+    key={tag}
+    href={`/?q=%23${encodeURIComponent(tag)}`}
+    className={styles.tag}
+    onClick={(e) => e.stopPropagation()}
+  >
+    #{tag}
+  </Link>
+))}
           </div>
         )}
       </div>
