@@ -1,15 +1,5 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
-
-// コンポーネントの中、useStateより前に追加
-const searchParams = useSearchParams()
-
-// useStateを変更
-const [search, setSearch] = useState<SearchState>({
-  ...defaultSearch,
-  query: searchParams.get('q') ?? '',
-})
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import ClipCard from './ClipCard'
@@ -24,7 +14,6 @@ interface Props {
   initialQuery: string
 }
 
-// "2026-03-20-1-1" → "2026-03-20"
 function idToDate(id: string): string {
   return id.slice(0, 10)
 }
@@ -33,7 +22,6 @@ function getPeriodRange(period: SearchState['period']): { from: string; to: stri
   const now = new Date()
   const y = now.getFullYear()
   const m = now.getMonth()
-
   if (period === 'month') {
     const from = new Date(y, m, 1)
     const to = new Date(y, m + 1, 0)
@@ -52,13 +40,11 @@ function getPeriodRange(period: SearchState['period']): { from: string; to: stri
   return null
 }
 
-/** コース名に対応する全表記（正式名 + 略称）を返す */
 function getCourseNames(courseName: string, courses: Course[]): string[] {
   const c = courses.find((c) => c.name === courseName)
   return c ? [c.name, ...c.aliases] : [courseName]
 }
 
-/** クエリをタグトークンとテキストトークンに分ける */
 function parseQuery(query: string) {
   const tokens = query.trim().split(/\s+/).filter(Boolean)
   const tags: string[] = []
@@ -72,23 +58,17 @@ function parseQuery(query: string) {
 
 function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]): ClipMeta[] {
   const { tags, texts } = parseQuery(search.query)
-
-  // 期間の決定
   let dateFrom = search.dateFrom
   let dateTo = search.dateTo
   if (search.period && search.period !== 'custom') {
     const range = getPeriodRange(search.period)
     if (range) { dateFrom = range.from; dateTo = range.to }
   }
-
   return clips.filter((clip) => {
-    // タグフィルター（AND）
     if (tags.length > 0) {
       const clipTagsLower = clip.tags.map((t) => t.toLowerCase())
       if (!tags.every((t) => clipTagsLower.includes(t.toLowerCase()))) return false
     }
-
-    // テキストフィルター（AND: コース名・略称・プレビュー）
     if (texts.length > 0) {
       const allCourseNames = getCourseNames(clip.course, courses)
       for (const text of texts) {
@@ -98,29 +78,24 @@ function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]):
         if (!matchesCourse && !matchesPreview) return false
       }
     }
-
-    // 順位フィルター
     if (search.rankMin !== '') {
       if (clip.final_rank < Number(search.rankMin)) return false
     }
     if (search.rankMax !== '') {
       if (clip.final_rank > Number(search.rankMax)) return false
     }
-
-    // 日付フィルター
     const clipDate = idToDate(clip.id)
     if (dateFrom && clipDate < dateFrom) return false
     if (dateTo && clipDate > dateTo) return false
-
     return true
   })
 }
 
-export default function HomeClient({ clips, courses }: Props) {
+export default function HomeClient({ clips, courses, initialQuery }: Props) {
   const [search, setSearch] = useState<SearchState>({
-  ...defaultSearch,
-  query: initialQuery,
-})
+    ...defaultSearch,
+    query: initialQuery,
+  })
 
   const filtered = useMemo(
     () => filterClips(clips, search, courses),
@@ -129,12 +104,9 @@ export default function HomeClient({ clips, courses }: Props) {
 
   return (
     <>
-      {/* 右上固定の検索ボタン */}
       <div className={styles.searchFixed}>
         <SearchPanel value={search} onChange={setSearch} />
       </div>
-
-      {/* タイトル（スクロールで消える） */}
       <div className={styles.header}>
         <Image
           src="/logo.webp"
@@ -145,8 +117,6 @@ export default function HomeClient({ clips, courses }: Props) {
         />
         <h1 className={styles.title}>きさら あーかいぶ</h1>
       </div>
-
-      {/* クリップグリッド */}
       {filtered.length > 0 ? (
         <div className={styles.grid}>
           {filtered.map((clip) => (
