@@ -11,4 +11,4 @@ source: https://m.youtube.com/watch?v=MA-jTIOrwKA&t=8m20s
 
 https://m.youtube.com/watch?v=MA-jTIOrwKA&t=8m20s
 
-見どころの2連赤消しは元動画では9:30〜、上プレイヤーでは
+見どころの2連赤消しは元動画では9:30〜、上プレイヤーでは1:14〜
