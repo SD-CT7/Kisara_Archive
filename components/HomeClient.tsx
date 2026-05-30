@@ -1,5 +1,15 @@
 'use client'
 
+import { useSearchParams } from 'next/navigation'
+
+// コンポーネントの中、useStateより前に追加
+const searchParams = useSearchParams()
+
+// useStateを変更
+const [search, setSearch] = useState<SearchState>({
+  ...defaultSearch,
+  query: searchParams.get('q') ?? '',
+})
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import ClipCard from './ClipCard'
