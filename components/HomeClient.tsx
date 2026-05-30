@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import ClipCard from './ClipCard'
 import SearchPanel, { defaultSearch, type SearchState } from './SearchPanel'
@@ -11,7 +13,6 @@ import styles from './HomeClient.module.css'
 interface Props {
   clips: ClipMeta[]
   courses: Course[]
-  initialQuery: string
 }
 
 function idToDate(id: string): string {
@@ -91,10 +92,11 @@ function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]):
   })
 }
 
-export default function HomeClient({ clips, courses, initialQuery }: Props) {
+export default function HomeClient({ clips, courses }: Props) {
+  const searchParams = useSearchParams()
   const [search, setSearch] = useState<SearchState>({
     ...defaultSearch,
-    query: initialQuery,
+    query: searchParams.get('q') ?? '',
   })
 
   const filtered = useMemo(
