@@ -15,6 +15,7 @@ export interface ClipMeta {
   video: string
   tags: string[]
   preview: string
+  source: string
 }
 
 export interface Clip extends ClipMeta {
@@ -67,6 +68,7 @@ export function getClipMeta(id: string): ClipMeta | null {
     video: String(data.video ?? ''),
     tags,
     preview,
+    source: String(data.source ?? ''),
   }
 }
 
