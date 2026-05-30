@@ -104,8 +104,6 @@ export default function HomeClient({ clips, courses }: Props) {
   }, [searchParams])
 
   const filtered = useMemo(
-  
-  const filtered = useMemo(
     () => filterClips(clips, search, courses),
     [clips, courses, search]
   )
