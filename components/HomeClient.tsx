@@ -21,6 +21,7 @@ import styles from './HomeClient.module.css'
 interface Props {
   clips: ClipMeta[]
   courses: Course[]
+  initialQuery: string
 }
 
 // "2026-03-20-1-1" → "2026-03-20"
@@ -116,7 +117,10 @@ function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]):
 }
 
 export default function HomeClient({ clips, courses }: Props) {
-  const [search, setSearch] = useState<SearchState>(defaultSearch)
+  const [search, setSearch] = useState<SearchState>({
+  ...defaultSearch,
+  query: initialQuery,
+})
 
   const filtered = useMemo(
     () => filterClips(clips, search, courses),
