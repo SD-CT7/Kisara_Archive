@@ -4,7 +4,7 @@ session: 1
 race: 5
 course: GBA クッパキャッスル1
 final_rank: 1
-video: https://drive.google.com/file/d/1YEP5Y-jZ0bEeugqSbPHTPzJm4X_AViQp/preview
+video: https://drive.google.com/uc?export=download&id=1YEP5Y-jZ0bEeugqSbPHTPzJm4X_AViQp
 source: https://m.youtube.com/watch?v=MA-jTIOrwKA&t=18m10s
 ---
 1-1でFBを引いたため中位を荒らしている（味方はダートに避けてくれてる）その後前展開
