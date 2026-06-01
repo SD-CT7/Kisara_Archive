@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import ClipCard from './ClipCard'
 import SearchPanel, { defaultSearch, type SearchState } from './SearchPanel'
 import type { ClipMeta } from '@/lib/clips'
