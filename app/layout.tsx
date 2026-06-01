@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'きさら あーかいぶ',
-  description: 'MK7 ラウンジ クリップアーカイブ',
+  description: 'Kisara MK7 ラウンジ クリップアーカイブ',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
