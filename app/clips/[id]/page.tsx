@@ -21,6 +21,19 @@ export async function generateMetadata({ params }: Props) {
   return { title: `${clip.course} ${clip.date} — Kisara Archive` }
 }
 
+      function toEmbedUrl(url: string): string {
+  // YouTube通常リンク
+  const watchMatch = url.match(/youtube\.com\/watch\?v=([\w-]+)/)
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`
+  
+  // YouTube短縮リンク
+  const shortMatch = url.match(/youtu\.be\/([\w-]+)/)
+  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`
+
+  // それ以外はそのまま
+  return url
+}
+
 export default async function ClipPage({ params }: Props) {
   const { id } = await params
   const clip = getClip(id)
@@ -41,18 +54,7 @@ export default async function ClipPage({ params }: Props) {
         <span className={styles.breadcrumb}>/ {id}</span>
       </div>
 
-      function toEmbedUrl(url: string): string {
-  // YouTube通常リンク
-  const watchMatch = url.match(/youtube\.com\/watch\?v=([\w-]+)/)
-  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`
-  
-  // YouTube短縮リンク
-  const shortMatch = url.match(/youtu\.be\/([\w-]+)/)
-  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`
 
-  // それ以外はそのまま
-  return url
-}
 
       {/* 動画プレイヤー */}
 <div className={styles.playerWrap}>
