@@ -114,13 +114,15 @@ export default function HomeClient({ clips, courses }: Props) {
         <SearchPanel value={search} onChange={setSearch} />
       </div>
       <div className={styles.header}>
-        <Image
-          src="/logo.webp"
-          alt="Kisara Archive ロゴ"
-          width={48}
-          height={48}
-          className={styles.logo}
-        />
+        <Link href="/">
+  <Image
+    src="/logo.webp"
+    alt="Kisara Archive ロゴ"
+    width={48}
+    height={48}
+    className={styles.logo}
+  />
+</Link>
         <h1 className={styles.title}>きさら あーかいぶ</h1>
       </div>
       {filtered.length > 0 ? (
