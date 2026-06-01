@@ -41,15 +41,28 @@ export default async function ClipPage({ params }: Props) {
         <span className={styles.breadcrumb}>/ {id}</span>
       </div>
 
+      function toEmbedUrl(url: string): string {
+  // YouTube通常リンク
+  const watchMatch = url.match(/youtube\.com\/watch\?v=([\w-]+)/)
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`
+  
+  // YouTube短縮リンク
+  const shortMatch = url.match(/youtu\.be\/([\w-]+)/)
+  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`
+
+  // それ以外はそのまま
+  return url
+}
+
       {/* 動画プレイヤー */}
-      <div className={styles.playerWrap}>
-        <iframe
-          src={clip.video}
-          className={styles.player}
-          allow="autoplay"
-          allowFullScreen
-        />
-      </div>
+<div className={styles.playerWrap}>
+  <iframe
+    src={toEmbedUrl(clip.video)}
+    className={styles.player}
+    allow="autoplay; fullscreen"
+    allowFullScreen
+  />
+</div>
 
       <div className={styles.body}>
         {/* メタ情報 */}
