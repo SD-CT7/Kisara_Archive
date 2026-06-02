@@ -4,7 +4,7 @@ session: 1
 race: 1
 course: Wii キノコキャニオン
 final_rank: 1
-video: https://www.dropbox.com/scl/fi/l273zgpmrtqgqqcvzvr26/output.webm?rlkey=anplegoktuwx4qpc5q5ny2ws0&st=adh7t8g7&raw=1
+video: https://www.dropbox.com/scl/fi/01mtejjd3u8v27q3cht7f/2026-1-1-1-1_rMG.webm?rlkey=rnksyn13x8dygv4qpa4x7tkl2&st=znhsvnkf&raw=1
 source: https://m.youtube.com/watch?v=MA-jTIOrwKA&t=56
 ---
 元動画の56秒〜
