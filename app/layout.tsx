@@ -2,8 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://あなたのサイトのURL.vercel.app'),
   title: 'きさら あーかいぶ',
-  description: 'Kisara MK7 ラウンジ クリップアーカイブ',
+  description: 'MK7 ラウンジ クリップアーカイブ',
+  openGraph: {
+    title: 'きさら あーかいぶ',
+    description: 'MK7 ラウンジ クリップアーカイブ',
+    images: ['/logo.webp'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
