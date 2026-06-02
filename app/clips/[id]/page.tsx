@@ -18,7 +18,15 @@ export async function generateMetadata({ params }: Props) {
   const { id } = await params
   const clip = getClip(id)
   if (!clip) return {}
-  return { title: `${clip.course} ${clip.date} — Kisara Archive` }
+  return {
+    title: `${clip.course} ${clip.date} — きさら あーかいぶ`,
+    description: clip.preview,
+    openGraph: {
+      title: `${clip.course} ${clip.date}`,
+      description: clip.preview,
+      images: [`/clips/${id}/thumb.webp`],
+    },
+  }
 }
 
       function toEmbedUrl(url: string): string {
