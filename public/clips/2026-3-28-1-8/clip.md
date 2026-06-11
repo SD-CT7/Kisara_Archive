@@ -3,12 +3,12 @@ date: 2026-03-28
 session: 1
 race: 7
 course: DS ルイージマンション
-final_rank: 5
-video: https://www.dropbox.com/scl/fi/6x5snzi1m8jwb6c2y5nlt/2026-3-28-1-7_rWP.webm?rlkey=spf7udf0kuyrxv0kq2jx18xj8&st=p3529116&raw=1
-source: https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=21m46s
+final_rank: 6
+video: https://www.dropbox.com/scl/fi/63z3xebohdtshgal8n8c4/2026-3-28-1-8_rLM.webm?rlkey=pbj683buag4onlfj2492p5tdg&st=pcbtxv39&raw=1
+source: https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=25m49s
 ---
-3-2前でSSを取れたため加速が超過して制御できなくならないようにダシュボを飛び越えている。2-3で切れたキラーが弱すぎて
+恐らく初手で中途半端な中位を一生走るより廊下のコインが欲しいため下がっている。1-3付近でアウトのグライダーに赤を逃がしている。2-2で死んで、のアイテムも火力が足りないため3 → 6になった。
 
-元動画の21分46秒〜
+元動画の25分49秒〜
 
-https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=21m46s
+https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=25m49s
