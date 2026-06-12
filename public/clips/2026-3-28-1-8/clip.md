@@ -1,7 +1,7 @@
 ---
 date: 2026-03-28
 session: 1
-race: 7
+race: 8
 course: DS ルイージマンション
 final_rank: 6
 video: https://www.dropbox.com/scl/fi/63z3xebohdtshgal8n8c4/2026-3-28-1-8_rLM.webm?rlkey=pbj683buag4onlfj2492p5tdg&st=pcbtxv39&raw=1
