@@ -25,10 +25,24 @@ export interface Clip extends ClipMeta {
 /** フォルダ名の逆順（新しい順）で全IDを返す */
 export function getAllClipIds(): string[] {
   if (!fs.existsSync(clipsDir)) return []
-  return fs.readdirSync(clipsDir)
-    .filter((name) => fs.statSync(path.join(clipsDir, name)).isDirectory())
-    .sort()
-    .reverse()
+  function parseId(id: string) {
+  const parts = id.split('-')
+  return {
+    date: `${parts[0]}-${parts[1]}-${parts[2]}`,
+    session: parseInt(parts[3], 10),
+    race: parseInt(parts[4], 10),
+  }
+}
+
+return fs.readdirSync(clipsDir)
+  .filter((name) => fs.statSync(path.join(clipsDir, name)).isDirectory())
+  .sort((a, b) => {
+    const pa = parseId(a)
+    const pb = parseId(b)
+    if (pb.date !== pa.date) return pb.date.localeCompare(pa.date)
+    if (pb.session !== pa.session) return pb.session - pa.session
+    return pb.race - pa.race
+  })
 }
 
 /** 1件のメタデータを読む */
