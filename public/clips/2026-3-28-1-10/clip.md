@@ -3,7 +3,7 @@ date: 2026-03-28
 session: 1
 race: 10
 course: ネオクッパシティ
-final_rank: 1
+final_rank: 4
 video: https://www.dropbox.com/scl/fi/c1m4y8beo1mi7yljcsdv4/2026-3-28-1-10_NBC.webm?rlkey=kpn70iswb3xmwdv6fejdqbk3f&st=zhf27ecx&raw=1
 source: https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=32m57s
 ---
