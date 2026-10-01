@@ -48,8 +48,12 @@ export default async function ClipPage({ params }: Props) {
   if (!clip) notFound()
 
   const rankSrc = `/ranks/${clip.final_rank}.webp`
+  // フォルダ名 yyyy-mm-dd-s-r から先頭4要素(yyyy-mm-dd-s)を取り出し、
+  // セッション単位のリザルト画像 /results/yyyy-mm-dd-s.webp を探す
+  const sessionKey = id.split('-').slice(0, 4).join('-')
+  const resultSrc = `/results/${sessionKey}.webp`
   const hasResult = fs.existsSync(
-    path.join(process.cwd(), 'public', 'clips', id, 'result.webp')
+    path.join(process.cwd(), 'public', 'results', `${sessionKey}.webp`)
   )
 
   return (
@@ -112,7 +116,7 @@ export default async function ClipPage({ params }: Props) {
             <div className={styles.sectionTitle}>リザルト</div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`/clips/${id}/result.webp`}
+              src={resultSrc}
               alt="リザルト"
               className={styles.resultImg}
             />
