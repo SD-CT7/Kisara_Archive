@@ -71,7 +71,7 @@ export default function SearchPanel({ value, onChange }: Props) {
             className={styles.rankInput}
             type="number"
             min={1}
-            max={12}
+            max={8}
             placeholder="1"
             value={value.rankMin}
             onChange={(e) => set({ rankMin: e.target.value })}
@@ -81,8 +81,8 @@ export default function SearchPanel({ value, onChange }: Props) {
             className={styles.rankInput}
             type="number"
             min={1}
-            max={12}
-            placeholder="12"
+            max={8}
+            placeholder="8"
             value={value.rankMax}
             onChange={(e) => set({ rankMax: e.target.value })}
           />
