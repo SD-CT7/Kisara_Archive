@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -29,15 +31,13 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
-      function toEmbedUrl(url: string): string {
+function toEmbedUrl(url: string): string {
   // YouTube通常リンク
   const watchMatch = url.match(/youtube\.com\/watch\?v=([\w-]+)/)
   if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`
-  
   // YouTube短縮リンク
   const shortMatch = url.match(/youtu\.be\/([\w-]+)/)
   if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`
-
   // それ以外はそのまま
   return url
 }
@@ -48,6 +48,9 @@ export default async function ClipPage({ params }: Props) {
   if (!clip) notFound()
 
   const rankSrc = `/ranks/${clip.final_rank}.webp`
+  const hasResult = fs.existsSync(
+    path.join(process.cwd(), 'public', 'clips', id, 'result.webp')
+  )
 
   return (
     <main className={styles.root}>
@@ -62,17 +65,15 @@ export default async function ClipPage({ params }: Props) {
         <span className={styles.breadcrumb}>/ {id}</span>
       </div>
 
-
-
       {/* 動画プレイヤー */}
-<div className={styles.playerWrap}>
-  <iframe
-    src={toEmbedUrl(clip.video)}
-    className={styles.player}
-    allow="autoplay; fullscreen"
-    allowFullScreen
-  />
-</div>
+      <div className={styles.playerWrap}>
+        <iframe
+          src={toEmbedUrl(clip.video)}
+          className={styles.player}
+          allow="autoplay; fullscreen"
+          allowFullScreen
+        />
+      </div>
 
       <div className={styles.body}>
         {/* メタ情報 */}
@@ -105,6 +106,19 @@ export default async function ClipPage({ params }: Props) {
           </ReactMarkdown>
         </div>
 
+        {/* リザルト */}
+        {hasResult && (
+          <>
+            <div className={styles.sectionTitle}>リザルト</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/clips/${id}/result.webp`}
+              alt="リザルト"
+              className={styles.resultImg}
+            />
+          </>
+        )}
+
         {/* 元動画リンク */}
         <div className={styles.sectionTitle}>元動画</div>
         <a
@@ -136,10 +150,10 @@ export default async function ClipPage({ params }: Props) {
             <div className={styles.sectionTitle}>タグ</div>
             <div className={styles.tags}>
               {clip.tags.map((tag) => (
-  <Link key={tag} href={`/?q=%23${encodeURIComponent(tag)}`} className={styles.tag}>
-    #{tag}
-  </Link>
-))}
+                <Link key={tag} href={`/?q=%23${encodeURIComponent(tag)}`} className={styles.tag}>
+                  #{tag}
+                </Link>
+              ))}
             </div>
           </>
         )}
