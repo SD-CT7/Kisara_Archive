@@ -185,6 +185,16 @@
   font-weight: 700;
 }
 
+/* リザルト画像 */
+.resultImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  background: var(--card);
+}
+
 /* 元動画リンク */
 .linkCard {
   background: var(--card);
