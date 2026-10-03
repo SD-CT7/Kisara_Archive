@@ -31,7 +31,10 @@ export async function generateMetadata({ params }: Props) {
 
   // clip.md のフロントマターに mp4: https://... がある場合だけ、
   // Discord 等で再生できる og:video を出力する(.mp4 / .webm 対応)
-  const mp4 = (clip as { mp4?: string }).mp4
+  // mp4 項目がなければ、video が .mp4 / .webm の直リンクのときはそれを使う
+  const explicit = (clip as { mp4?: string }).mp4
+  const mp4 =
+    explicit ?? (toVideoMime(clip.video) ? clip.video : undefined)
   const videoType = mp4 ? toVideoMime(mp4) : undefined
 
   return {
