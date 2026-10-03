@@ -16,16 +16,45 @@ export async function generateStaticParams() {
   return getAllClipIds().map((id) => ({ id }))
 }
 
+// URLの拡張子から og:video:type 用のMIMEタイプを決める(クエリ文字列は無視)
+function toVideoMime(url: string): string | undefined {
+  const pathname = url.split(/[?#]/)[0].toLowerCase()
+  if (pathname.endsWith('.mp4')) return 'video/mp4'
+  if (pathname.endsWith('.webm')) return 'video/webm'
+  return undefined
+}
+
 export async function generateMetadata({ params }: Props) {
   const { id } = await params
   const clip = getClip(id)
   if (!clip) return {}
+
+  // clip.md のフロントマターに mp4: https://... がある場合だけ、
+  // Discord 等で再生できる og:video を出力する(.mp4 / .webm 対応)
+  const mp4 = (clip as { mp4?: string }).mp4
+  const videoType = mp4 ? toVideoMime(mp4) : undefined
+
   return {
     title: `${clip.course} ${clip.date} — きさら あーかいぶ`,
     description: clip.preview,
     openGraph: {
       title: `${clip.course} ${clip.date}`,
       description: clip.preview,
+      ...(mp4 && videoType
+        ? {
+            type: 'video.other' as const,
+            videos: [
+              {
+                url: mp4,
+                secureUrl: mp4,
+                type: videoType,
+                width: 1280,
+                height: 720,
+              },
+            ],
+          }
+        : {}),
+      // 動画を再生できない共有先向けのフォールバック
       images: [`/clips/${id}/thumb.webp`],
     },
   }
