@@ -1,14 +1,14 @@
 ---
-date: 2026-03-28
+date: 2026-03-29
 session: 1
-race: 9
-course: ウーフーアイランド1
+race: 1
+course: キノピオサーキット
 final_rank: 1
-video: https://www.dropbox.com/scl/fi/50u0t0irwl43sfv5ig6wv/2026-3-28-1-9_WL.webm?rlkey=700pdvnx43lmi9hwf2bvqt6qf&st=55r3qgyl&raw=1
-source: https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=29m48s
+video: https://files.catbox.moe/1321u6.webm
+source: https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=1712s
 ---
-キノコ持ちの味方がショトカで前に来たので譲り。前2になったタイミングから積極的にアイテムを回している。ゴール前は棘の爆風を避けるためアウトに回っている
+1-1は右がダートでスナイプしやすいので警戒と1位スタートなので金差をつけたくてアウトに回らないといけないのでしっぽ展開。その後ゲートバナナ飛ばし。2-1で1位に赤投げで前に出てその後ゴールまでTA。おそらくコースが短いので棘は切ってる。
 
-元動画の29分48秒〜
+元動画の13分35秒〜
 
 https://m.youtube.com/watch?v=W7jC1H0qp5Y&t=29m48s
