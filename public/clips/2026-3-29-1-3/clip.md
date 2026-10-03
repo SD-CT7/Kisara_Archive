@@ -1,14 +1,14 @@
 ---
 date: 2026-03-29
 session: 1
-race: 1
-course: キノピオサーキット
+race: 3
+course: SFC マリオサーキット2
 final_rank: 1
-video: https://files.catbox.moe/1321u6.webm
-source: https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=29s
+video: https://files.catbox.moe/2nfjky.webm
+source: https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=6m40s
 ---
-1-1は右がダートでスナイプしやすいので警戒と1位スタートなので金差をつけたくてアウトに回らないといけないのでしっぽ展開。その後ゲートバナナ飛ばし。2-1で1位に赤投げで前に出てその後ゴールまでTA。おそらくコースが短いので棘は切ってる。
+切り取りを自動化をしてるため最初の数秒間動画が流れない可能性があります。
+スタート直後の混みやすいコイン3枚をとれなかったかつ1-1後にしっぽで死んだのでがっつり下がっている。2-2前で荒れていてボムもあるためスター使用グライダーでキノ2持ってたNathanが死んでるのがこのクリップのサビ。後は運だけ(60%だからほんとは妥当)キノ3でショトカして3-2で赤ケアで交換して前張って1位。
+元動画の6分40秒〜
 
-元動画の29秒〜
-
-https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=29s
+https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=6m40s
