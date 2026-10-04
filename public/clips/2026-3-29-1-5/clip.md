@@ -1,14 +1,14 @@
 ---
 date: 2026-03-29
 session: 1
-race: 1
-course: キノピオサーキット
-final_rank: 1
-video: https://files.catbox.moe/1321u6.webm
-source: https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=29s
+race: 5
+course: ヘイホーカーニバル
+final_rank: 8
+video: https://files.catbox.moe/umhs36.mp4
+source: https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=13m40s
 ---
-1-1は右がダートでスナイプしやすいので警戒と1位スタートなので金差をつけたくてアウトに回らないといけないのでしっぽ展開。その後ゲートバナナ飛ばし。2-1で1位に赤投げで前に出てその後ゴールまでTA。おそらくコースが短いので棘は切ってる。
+L1で赤くらって死亡。そっからずっと中位に揉まれる。L3の最後にショトカ行かなかった理由はわかんない。結果論的にショトカに緑投げ込まれてるので経験測で行かなかったのかも？最後の運ゲー反射緑くらったあとにLeverさんが7位を殺そうとしてくれてんの連携うますぎてやばい
 
-元動画の29秒〜
+元動画の13分40秒〜
 
-https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=29s
+https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=13m40s
