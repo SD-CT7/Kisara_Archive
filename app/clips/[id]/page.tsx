@@ -25,7 +25,7 @@ function truncate(text: string | undefined, max: number): string {
 }
 
 const META_TITLE_MAX = 60
-const META_DESC_MAX = 120
+const META_DESC_MAX = 75
 
 // URLの拡張子から og:video:type 用のMIMEタイプを決める(クエリ文字列は無視)
 function toVideoMime(url: string): string | undefined {
