@@ -16,6 +16,17 @@ export async function generateStaticParams() {
   return getAllClipIds().map((id) => ({ id }))
 }
 
+// 長いメタデータを max 文字で切って末尾に ... を付ける(改行は空白に変換)
+function truncate(text: string | undefined, max: number): string {
+  const flat = (text ?? '').replace(/\s+/g, ' ').trim()
+  const chars = Array.from(flat) // サロゲートペアで文字化けしないように
+  if (chars.length <= max) return flat
+  return chars.slice(0, max).join('').trimEnd() + '...'
+}
+
+const META_TITLE_MAX = 60
+const META_DESC_MAX = 120
+
 // URLの拡張子から og:video:type 用のMIMEタイプを決める(クエリ文字列は無視)
 function toVideoMime(url: string): string | undefined {
   const pathname = url.split(/[?#]/)[0].toLowerCase()
@@ -37,12 +48,14 @@ export async function generateMetadata({ params }: Props) {
     explicit ?? (toVideoMime(clip.video) ? clip.video : undefined)
   const videoType = mp4 ? toVideoMime(mp4) : undefined
 
+  const description = truncate(clip.preview, META_DESC_MAX)
+
   return {
-    title: `${clip.course} ${clip.date} — きさら あーかいぶ`,
-    description: clip.preview,
+    title: truncate(`${clip.course} ${clip.date}`, META_TITLE_MAX) + ' — きさら あーかいぶ',
+    description,
     openGraph: {
-      title: `${clip.course} ${clip.date}`,
-      description: clip.preview,
+      title: truncate(`${clip.course} ${clip.date}`, META_TITLE_MAX),
+      description,
       ...(mp4 && videoType
         ? {
             type: 'video.other' as const,
