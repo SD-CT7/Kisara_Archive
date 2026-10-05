@@ -8,6 +8,7 @@ video: https://www.dropbox.com/scl/fi/6fa2t2fsseac5lupvgehk/2026-1-1-1-4_rLR.web
 source: https://m.youtube.com/watch?v=MA-jTIOrwKA&t=11m19s
 --- 
 L1で金キノツモ → 2-1で吐いて前展開
+何気に被弾避け上手い
 
 元動画の11:19秒〜
 
