@@ -11,4 +11,4 @@ L1での螺旋でFBに譲る。L2の土星で前のコインを集めている�
 
 元動画の34秒〜
 
-https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=34m
+https://www.youtube.com/watch?v=y_WvT2zeZqw&t=34m
