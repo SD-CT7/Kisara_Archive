@@ -11,4 +11,4 @@ source: https://www.youtube.com/watch?v=y_WvT2zeZqw&t=3m37s
 
 元動画の3分37秒〜
 
-https://www.youtube.com/watch?v=Y2FMwRDxCKs&t=3m37s
+https://www.youtube.com/watch?v=y_WvT2zeZqw&t=3m37s
