@@ -1,6 +1,6 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useState, useMemo, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -23,6 +23,7 @@ function getPeriodRange(period: SearchState['period']): { from: string; to: stri
   const now = new Date()
   const y = now.getFullYear()
   const m = now.getMonth()
+
   if (period === 'month') {
     const from = new Date(y, m, 1)
     const to = new Date(y, m + 1, 0)
@@ -57,19 +58,33 @@ function parseQuery(query: string) {
   return { tags, texts }
 }
 
+// 検索語に #tag が入っていれば取り除き、なければ末尾に追加する(大文字小文字は区別しない)
+function toggleTag(query: string, tag: string): string {
+  const tokens = query.trim().split(/\s+/).filter(Boolean)
+  const target = `#${tag}`.toLowerCase()
+  const exists = tokens.some((t) => t.toLowerCase() === target)
+  const next = exists
+    ? tokens.filter((t) => t.toLowerCase() !== target)
+    : [...tokens, `#${tag}`]
+  return next.join(' ')
+}
+
 function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]): ClipMeta[] {
   const { tags, texts } = parseQuery(search.query)
+
   let dateFrom = search.dateFrom
   let dateTo = search.dateTo
   if (search.period && search.period !== 'custom') {
     const range = getPeriodRange(search.period)
     if (range) { dateFrom = range.from; dateTo = range.to }
   }
+
   return clips.filter((clip) => {
     if (tags.length > 0) {
       const clipTagsLower = clip.tags.map((t) => t.toLowerCase())
       if (!tags.every((t) => clipTagsLower.includes(t.toLowerCase()))) return false
     }
+
     if (texts.length > 0) {
       const allCourseNames = getCourseNames(clip.course, courses)
       for (const text of texts) {
@@ -79,20 +94,24 @@ function filterClips(clips: ClipMeta[], search: SearchState, courses: Course[]):
         if (!matchesCourse && !matchesPreview) return false
       }
     }
+
     if (search.rankMin !== '') {
       if (clip.final_rank < Number(search.rankMin)) return false
     }
     if (search.rankMax !== '') {
       if (clip.final_rank > Number(search.rankMax)) return false
     }
+
     const clipDate = idToDate(clip.id)
     if (dateFrom && clipDate < dateFrom) return false
     if (dateTo && clipDate > dateTo) return false
+
     return true
   })
 }
 
 export default function HomeClient({ clips, courses }: Props) {
+  const router = useRouter()
   const searchParams = useSearchParams()
   const [search, setSearch] = useState<SearchState>({
     ...defaultSearch,
@@ -109,27 +128,40 @@ export default function HomeClient({ clips, courses }: Props) {
     [clips, courses, search]
   )
 
+  // Shift+タグ: 現在の検索語にそのタグを追加(すでにあれば外す)
+  // URLを更新すると、上の useEffect が検索語に反映してくれる
+  const handleTagShiftClick = (tag: string) => {
+    const next = toggleTag(search.query, tag)
+    router.replace(next ? `/?q=${encodeURIComponent(next)}` : '/', { scroll: false })
+  }
+
   return (
     <>
       <div className={styles.searchFixed}>
         <SearchPanel value={search} onChange={setSearch} />
       </div>
+
       <div className={styles.header}>
-<Image
-  src="/logo.webp"
-  alt="Kisara Archive ロゴ"
-  width={48}
-  height={48}
-  className={styles.logo}
-  onClick={() => setSearch(defaultSearch)}
-  style={{ cursor: 'pointer' }}
-/>
+        <Image
+          src="/logo.webp"
+          alt="Kisara Archive ロゴ"
+          width={48}
+          height={48}
+          className={styles.logo}
+          onClick={() => setSearch(defaultSearch)}
+          style={{ cursor: 'pointer' }}
+        />
         <h1 className={styles.title}>きさら あーかいぶ</h1>
       </div>
+
       {filtered.length > 0 ? (
         <div className={styles.grid}>
           {filtered.map((clip) => (
-            <ClipCard key={clip.id} clip={clip} />
+            <ClipCard
+              key={clip.id}
+              clip={clip}
+              onTagShiftClick={handleTagShiftClick}
+            />
           ))}
         </div>
       ) : (
