@@ -5,9 +5,11 @@ import styles from './ClipCard.module.css'
 
 interface Props {
   clip: ClipMeta
+  /** Shiftキーを押しながらタグを押したときに呼ばれる(複数タグ検索用) */
+  onTagShiftClick?: (tag: string) => void
 }
 
-export default function ClipCard({ clip }: Props) {
+export default function ClipCard({ clip, onTagShiftClick }: Props) {
   const thumbSrc = `/clips/${clip.id}/thumb.webp`
   const rankSrc = `/ranks/${clip.final_rank}.webp`
 
@@ -42,7 +44,18 @@ export default function ClipCard({ clip }: Props) {
                 key={tag}
                 href={`/?q=%23${encodeURIComponent(tag)}`}
                 className={styles.tag}
-                onClick={(e) => e.stopPropagation()}
+                onMouseDown={(e) => {
+                  // Shift+クリックでテキスト範囲選択が走るのを防ぐ
+                  if (e.shiftKey && onTagShiftClick) e.preventDefault()
+                }}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (e.shiftKey && onTagShiftClick) {
+                    // 通常のリンク遷移(新しいウィンドウで開く)を止めて、タグを追加/削除
+                    e.preventDefault()
+                    onTagShiftClick(tag)
+                  }
+                }}
               >
                 #{tag}
               </Link>
