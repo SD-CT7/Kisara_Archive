@@ -7,6 +7,8 @@ final_rank: 1
 video: https://files.catbox.moe/tzmu62.mp4
 source: https://www.youtube.com/watch?v=NysmxOyM3Uw&t=19m21s
 ---
+⚠️音量注意·ミュート推奨
+
 棘運良すぎね？2
 
 元動画の19分21秒〜
