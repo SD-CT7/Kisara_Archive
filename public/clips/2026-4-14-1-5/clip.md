@@ -7,6 +7,8 @@ final_rank: 1
 video: https://files.catbox.moe/h0wlvg.mp4
 source: https://www.youtube.com/watch?v=NysmxOyM3Uw&t=15m52s
 ---
+⚠️音量注意·ミュート推奨
+
 - L1 SSで前抜け。
 - L2 設置しながらTA
 - L3 同上(相方が棘保持)
