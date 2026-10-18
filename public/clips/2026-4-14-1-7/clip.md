@@ -7,6 +7,8 @@ final_rank: 1
 video: https://files.catbox.moe/iulgig.mp4
 source: https://www.youtube.com/watch?v=NysmxOyM3Uw&t=21m59s
 ---
+⚠️音量注意·ミュート推奨
+
 - L1 1位スタートなのでアウトルートで金8枚選択。キノ3をツモったためショトカで吐いて前2形成。
 - L2 棘が来たため相方に譲ってもらうも棘がラグで分離したため保持。
 - L3 前2でTA
